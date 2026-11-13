@@ -1,0 +1,20 @@
+name: nuclear-shape
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - git                 # needed to install CellTool and freeimage-py from GitHub
+  - setuptools<81       # CellTool imports pkg_resources, which newer setuptools no longer ships
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-image
+  - tifffile
+  - jupyterlab
+  - ipykernel
+  - pip:
+      # CellTool and its image-reading dependency (pinned to the commits used for the analysis)
+      - git+https://github.com/zpincus/freeimage-py@b7c2adfa5a0c9d9c890ce6247a76e950b5b0509f
+      - git+https://github.com/zpincus/celltool@ac6a0bbd8aa73e36866d2caca0fbf56856c45aa3

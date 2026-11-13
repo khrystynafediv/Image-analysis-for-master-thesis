@@ -1,0 +1,26 @@
+# Conda environment for the bleb colocalisation notebook.
+#
+# Create:    conda env create -f environment.yml
+# Activate:  conda activate bleb-coloc
+# Register the Jupyter kernel (optional, for VS Code / JupyterLab):
+#            python -m ipykernel install --user --name bleb-coloc --display-name "bleb-coloc"
+#
+# Lower bounds are conservative minimum versions; the notebook was tested with the
+# latest releases of all packages. To freeze the exact versions you used for the
+# publication, run inside the activated environment:
+#            conda env export --no-builds > environment.lock.yml
+
+name: bleb-coloc
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.13
+  - numpy>=1.24
+  - pandas>=1.5
+  - scipy>=1.10
+  - scikit-image>=0.20
+  - matplotlib>=3.6
+  - tifffile>=2022.5.4
+  - roifile>=2022.5.18
+  - jupyterlab
+  - ipykernel
