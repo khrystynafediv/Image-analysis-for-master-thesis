@@ -21,7 +21,6 @@ The repository contains the analysis notebook of a master's thesis. It starts fr
 ├── nuclear_shape_analysis.ipynb   # the analysis (run top to bottom)
 ├── environment.yml                # conda environment
 ├── README.md
-├── .gitignore
 ├── data/
 │   └── masks/                     # put your binary masks here (not tracked by git)
 └── output/                        # created by the notebook (not tracked by git)
