@@ -5,7 +5,7 @@ The repository contains the analysis notebook of a master's thesis. It starts fr
 
 ## What the notebook does
 
-1. **Contour extraction.** CellTool extracts closed 2D outlines as iso-intensity contours of each mask, converts them to micrometres, smooths them with a periodic cubic B-spline and resamples every outline to a fixed number of points. Masks may contain several nuclei of different sizes.
+1. **Contour extraction.** celltool extracts closed 2D outlines as iso-intensity contours of each mask, converts them to micrometres, smooths them with a periodic cubic B-spline and resamples every outline to a fixed number of points. Masks may contain several nuclei of different sizes.
 2. **Size classes.** Each nucleus is assigned to a class by its projected area (default: *Micronuclei*, *Unconfined nuclei*, *Mildly confined nuclei*, *Confined nuclei*). A histogram of areas and a helper that suggests thresholds help to place the class boundaries.
 3. **Alignment.** Outlines are aligned rigidly (rotation, translation, optional reflection) per class and all together with `celltool align_contours`.
 4. **PCA of shape**, computed in two variants:
@@ -42,7 +42,7 @@ conda activate nuclear-shape
 jupyter lab
 ```
 
-CellTool and its dependency `freeimage-py` are installed from GitHub (pinned commits in `environment.yml`), so `git` and an internet connection are required during installation. `setuptools<81` is pinned because CellTool imports `pkg_resources`.
+celltool and its dependency `freeimage-py` are installed from GitHub (pinned commits in `environment.yml`), so `git` and an internet connection are required during installation. `setuptools<81` is pinned because CellTool imports `pkg_resources`.
 
 ## Data
 
@@ -88,7 +88,7 @@ The most important parameters:
 
 ## Interpretation notes
 
-* **CellTool does not normalise size during alignment.** In the `size_included` PCA the leading mode usually reflects nuclear size. Check the Spearman correlation with area in `pca_variance_and_area_correlation.csv`, and use `shape_only` to ask about shape.
+* **celltool does not normalise size during alignment.** In the `size_included` PCA the leading mode usually reflects nuclear size. Check the Spearman correlation with area in `pca_variance_and_area_correlation.csv`, and use `shape_only` to ask about shape.
 * **Classes are defined by area thresholds.** Area differences between the classes follow from the definition and are not tested. The classes are a proxy for nuclear flattening, not an independent measurement of confinement.
 * **p-values with large n.** Almost any comparison reaches p < 0.001 with hundreds of nuclei. Interpret the effect sizes (ε², KS *D*) and the distributions.
 * **Small objects.** Outlines of very small objects (for example micronuclei) are sensitive to pixel size, segmentation and smoothing; apparent shape differences can be partly technical.
@@ -99,7 +99,7 @@ The most important parameters:
 
 | Problem | Remedy |
 |---|---|
-| `CellTool executable not found` | activate the conda environment before starting Jupyter |
+| `celltool executable not found` | activate the conda environment before starting Jupyter |
 | `No masks found in data/masks` | add masks, or set `USE_DEMO_DATA = True` |
 | a class is empty or very small | adjust `SIZE_GROUPS_PX` using figure S1 and the threshold helper |
 | `ModuleNotFoundError: pkg_resources` | install `setuptools<81` |
@@ -114,6 +114,3 @@ The notebook was run end-to-end in demo mode with Python 3.12.3 (Linux), NumPy 2
 * Berg, S. et al. ilastik: interactive machine learning for (bio)image analysis. *Nat. Methods* 16, 1226–1232 (2019). https://doi.org/10.1038/s41592-019-0582-9
 * Jolliffe, I. T. & Cadima, J. Principal component analysis: a review and recent developments. *Phil. Trans. R. Soc. A* 374, 20150202 (2016). https://doi.org/10.1098/rsta.2015.0202
 
-## Citation and license
-
-If you use this code, please cite the thesis: *[author, title, institution, year]*
