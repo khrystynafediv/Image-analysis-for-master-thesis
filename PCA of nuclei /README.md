@@ -1,6 +1,6 @@
 # Nuclear shape analysis across area-defined size classes
 
-Contour-based morphometry of nuclei segmented in [ilastik](https://www.ilastik.org/) and analysed with [CellTool](https://github.com/zpincus/celltool) and Python (NumPy, SciPy, pandas, Matplotlib).
+Contour-based morphometry of nuclei segmented in [ilastik](https://www.ilastik.org/) and analysed with [celltool](https://github.com/zpincus/celltool) and Python (NumPy, SciPy, pandas, Matplotlib).
 The repository contains the analysis notebook of a master's thesis. It starts from **binary masks** and ends with publication-style figures and tables.
 
 ## What the notebook does
